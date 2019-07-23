@@ -38,7 +38,7 @@ func main() {
 	logger = log.New(logFile, "jokes ", log.LstdFlags|log.Lshortfile)
 	logger.Println("Program Start!")
 
-	//web server logic for jokes service
+	//web server logic for joke service
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
 		//creating a custom joke
@@ -50,11 +50,9 @@ func main() {
 			fmt.Fprintln(w, "Internal Server Error 500 - Please Try Again")
 		}
 
-		//serving joke
+		//serving the joke and printing it to standard out
 		fmt.Fprintf(w, "%s\n", joke)
-		fmt.Println(joke)
-		fmt.Println("")
-
+		fmt.Printf(joke + "\n")
 	})
 
 	//http server with some custom timeouts set
@@ -93,7 +91,9 @@ func GetCachedJoke() string {
 	return customJokes[index]
 }
 
-//CustomJoke contains the data and methods to create a custom joke
+//CustomJoke contains the data and methods to create a custom joke using a
+//random name from the name API and a random Chuck Norris joke from the
+//joke API.
 type CustomJoke struct {
 	Name      string
 	Surname   string
@@ -102,7 +102,7 @@ type CustomJoke struct {
 	JokeError error
 }
 
-//CustomJoke creates a custome joke
+//CustomJoke creates a custome joke by putting a random name in a Chuck Norris joke
 func (c CustomJoke) NewCustomJoke() string {
 	wg.Add(2)
 	//using goroutines to allow waiting on multiple requests concurrently
