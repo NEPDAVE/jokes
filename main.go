@@ -10,7 +10,6 @@ import (
 	"os"
 	"strings"
 	"sync"
-	"time"
 )
 
 var (
@@ -59,15 +58,7 @@ func main() {
 		fmt.Printf(joke + "\n")
 	})
 
-	//http server with some custom timeouts set
-	s := &http.Server{
-		Addr:         ":5000",
-		ReadTimeout:  10 * time.Second,
-		WriteTimeout: 10 * time.Second,
-		IdleTimeout:  10 * time.Second,
-	}
-
-	s.ListenAndServe()
+	http.ListenAndServe(":5000", nil)
 
 }
 
