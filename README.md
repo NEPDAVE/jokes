@@ -13,19 +13,16 @@ Clone or download this repository into you Go workspace.
 $ git clone https://github.com/NEPDAVE/jokes.git
 ```
 
-CD into the `jokes` directory and build the binary
+CD into the `jokes` directory build, the binary, and run the program
 ```
 $ cd jokes
 $ go build
-```
-
-Run the program 
-```
-./jokes
+$./jokes
 ```
 To get a joke run `curl localhost:5000` in another Terminal or in your web browser go to `localhost:5000`
 
 ### Option Two
+Use go get to fetch the package
 ```
 $ go get github.com/nepdave/jokes
 $ cd $HOME/go/bin
