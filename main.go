@@ -22,7 +22,11 @@ var (
 
 /*
 ***************************
-custom joke web service
+Custom Joke Web Service
+
+The service fetches a random name from a Name API and a random Chuck Norris
+joke from a Joke API. The service then replaces Chuck Norris' name with the
+random name to create a custom joke and serves it on port 5000.
 ***************************
 */
 
