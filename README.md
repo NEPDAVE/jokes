@@ -12,7 +12,7 @@ Clone or download this repository into you Go workspace
 ```
 $ git clone https://github.com/NEPDAVE/jokes.git
 ```
-CD into the `jokes` directory, build the binary, and run the program
+`cd` into the `jokes` directory, build the binary, and run the program
 ```
 $ cd jokes
 $ go build
