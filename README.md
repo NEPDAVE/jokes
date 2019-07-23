@@ -8,7 +8,7 @@ random name to create a custom joke and serves it on port 5000.
 ## To run the service, use one of two options.
 
 ### Option One
-clone or download this repository into you Go workspace. 
+Clone or download this repository into you Go workspace. 
 ```
 $ git clone https://github.com/NEPDAVE/jokes.git
 ```
