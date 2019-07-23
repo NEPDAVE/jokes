@@ -20,6 +20,12 @@ var (
 	customJokes = []string{} //slice to store customJokes
 )
 
+/*
+***************************
+custom joke web service
+***************************
+*/
+
 func main() {
 	//creating the logger object
 	logFile, err := os.Create("log.txt")
@@ -35,7 +41,7 @@ func main() {
 	//web server logic for jokes service
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
-		//creating a joke
+		//creating a custom joke
 		joke := CustomJoke{}.NewCustomJoke()
 
 		//checking the joke and serving a 500 if the joke == "", IE there is no joke
@@ -51,9 +57,6 @@ func main() {
 
 	})
 
-	//fs := http.FileServer(http.Dir("static/"))
-	//	http.Handle("/static/", http.StripPrefix("/static/", fs))
-
 	//http server with some custom timeouts set
 	s := &http.Server{
 		Addr:         ":5000",
@@ -68,7 +71,7 @@ func main() {
 
 /*
 ***************************
-custom joke struct, methods, and cached custom jokes
+custom joke struct, methods and functions
 ***************************
 */
 
@@ -80,7 +83,7 @@ func GetCachedJoke() string {
 	//handling edge cases where slice is not fully formed to work with random index
 	//selection, IE a slice with 0 or 1 elements
 	if l == 0 {
-		return "no jokes right now - try again"
+		return "Chuck Norris can install a 64 bit OS on 32 bit machines."
 	} else if l == 1 {
 		return customJokes[0]
 	}
@@ -177,7 +180,7 @@ func (c *CustomJoke) NewJoke() {
 
 /*
 ***************************
-name struct methods and funtions
+name struct, methods and funtions
 ***************************
 */
 
@@ -251,7 +254,7 @@ func GetName() ([]byte, error) {
 
 /*
 ***************************
-joke struct methods and functions
+joke struct, methods and functions
 ***************************
 */
 
